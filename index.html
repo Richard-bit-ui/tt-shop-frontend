@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="TT-Shop – der Tischtennis-Fachhändler aus Dippoldiswalde: Beläge, Hölzer, Profischläger, Platten und Zubehör mit technischen Daten, Montage-Service und Fachberatung." />
+    <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
+    <link rel="preload" href="./node_modules/@fontsource-variable/inter/files/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <title>TT-Shop – Der Tischtennis Shop</title>
+    <script>
+      // Hero-Banner der Startseite früh laden (LCP)
+      if (location.pathname === '/') {
+        var l = document.createElement('link');
+        l.rel = 'preload'; l.as = 'image'; l.setAttribute('fetchpriority', 'high');
+        l.setAttribute('imagesrcset', '/img/lifestyle/hero-net-sm.webp 720w, /img/lifestyle/hero-net-md.webp 1200w, /img/lifestyle/hero-net.webp 1920w');
+        l.setAttribute('imagesizes', '100vw');
+        document.head.appendChild(l);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

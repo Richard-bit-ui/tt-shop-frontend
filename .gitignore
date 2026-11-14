@@ -1,0 +1,12 @@
+node_modules
+dist
+*.log
+.DS_Store
+
+# lokale Sicherung der Original-Produktbilder (wird von scripts/normalize-images.mjs angelegt)
+img-original/
+
+# lokale Werkzeug-Einstellungen und Umgebungsvariablen
+.claude/
+.env
+.env.*

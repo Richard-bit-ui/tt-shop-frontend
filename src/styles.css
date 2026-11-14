@@ -1,0 +1,366 @@
+@import '@fontsource-variable/inter/opsz.css';
+@import 'tailwindcss';
+
+/*
+ * Designsystem „Store“
+ * Ruhig und hochwertig wie der Apple Store (hellgraue Flächen, weiße Karten mit großen Radien,
+ * zweifarbige Überschriften, Glas-Navigation, Pill-Buttons) – mit der Informationstiefe eines
+ * Tischtennis-Fachhändlers. Schrift: Inter mit engem Laufweiten-Ausgleich für Überschriften.
+ */
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --color-ink: #1d1d1f;
+  --color-ink-2: #333336;
+  --color-muted: #6e6e73;
+  --color-subtle: #6e6e73;
+  --color-line: #e3e3e6;
+  --color-line-2: #d2d2d7;
+  --color-panel: #f5f5f7;
+  --color-panel-2: #e8e8ed;
+  --color-red: #d6001c;
+  --color-red-dark: #ae0016;
+  --color-red-soft: #fdedef;
+  --color-ok: #0b7a3d;
+  --color-ok-soft: #e6f4ec;
+  --color-warn: #b45309;
+  --color-warn-soft: #fdf3e5;
+  --color-info: #0066cc;
+  --color-info-soft: #eaf1fb;
+  --color-gold: #f0a20b;
+
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 28px;
+
+  --shadow-pop: 0 18px 44px -14px rgb(0 0 0 / 0.26), 0 2px 8px -2px rgb(0 0 0 / 0.06);
+  --shadow-bar: 0 -8px 28px -12px rgb(0 0 0 / 0.22);
+  --shadow-card: 2px 4px 12px rgb(0 0 0 / 0.08);
+  --shadow-card-hover: 2px 4px 16px rgb(0 0 0 / 0.16);
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -12px rgb(0 0 0 / 0.16);
+
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-rise: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  /* nur Bewegung, keine Unsichtbarkeit: Inhalte sind sofort lesbar (LCP, Hintergrund-Tabs) */
+  @keyframes rise {
+    from {
+      transform: translateY(14px);
+    }
+    to {
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    -webkit-tap-highlight-color: transparent;
+    /* Höhe des klebenden Headers (mobil inkl. Suchfeld) */
+    --hdr: 110px;
+  }
+  @media (min-width: 768px) {
+    :root {
+      --hdr: 64px;
+    }
+  }
+  html,
+  body {
+    overflow-x: clip;
+  }
+  html {
+    @apply bg-white text-ink antialiased;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    font-optical-sizing: auto;
+    scroll-padding-top: calc(var(--hdr) + 24px);
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply min-h-dvh font-sans text-[15px] leading-normal;
+  }
+  /* Typografie: ausgewogene Überschriften, keine einzelnen Wörter in der letzten Zeile */
+  h1,
+  h2,
+  h3,
+  .h1,
+  .h2,
+  .display {
+    text-wrap: balance;
+  }
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+  ::selection {
+    @apply bg-ink text-white;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-info);
+    outline-offset: 2px;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+  img {
+    @apply select-none;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10;
+  }
+
+  /* Überschriften: groß, halbfett, eng gesetzt */
+  .display {
+    @apply font-semibold tracking-[-0.035em];
+  }
+  .h1 {
+    @apply text-[32px] leading-[1.06] font-semibold tracking-[-0.03em] sm:text-[44px] lg:text-[48px];
+  }
+  .h2 {
+    @apply text-[24px] leading-[1.12] font-semibold tracking-[-0.022em] sm:text-[28px];
+  }
+  .h3 {
+    @apply text-[17px] font-semibold tracking-[-0.012em];
+  }
+  .overline {
+    @apply text-[12px] font-semibold tracking-[0.01em] text-muted;
+  }
+  .eyebrow {
+    @apply text-[12px] font-semibold text-red;
+  }
+
+  .btn {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-full px-6 text-[15px] font-medium tracking-[-0.01em] whitespace-nowrap transition-[background-color,border-color,color,transform] duration-150 select-none active:scale-[0.98] disabled:pointer-events-none disabled:opacity-35;
+  }
+  .btn > svg,
+  .chip > svg {
+    @apply shrink-0;
+  }
+  .btn-primary,
+  .btn-dark {
+    @apply bg-ink text-white hover:bg-ink-2;
+  }
+  .btn-red {
+    @apply bg-red text-white hover:bg-red-dark;
+  }
+  .btn-light {
+    @apply bg-white text-ink hover:bg-white/85;
+  }
+  .btn-outline {
+    @apply border border-line-2 bg-white text-ink hover:border-ink;
+  }
+  .btn-outline-light {
+    @apply border border-white/40 text-white hover:border-white hover:bg-white/10;
+  }
+  .btn-ghost {
+    @apply bg-panel text-ink hover:bg-panel-2;
+  }
+  .btn-blue {
+    @apply bg-info text-white hover:bg-[#0077ed];
+  }
+  .btn-sm {
+    @apply h-9 px-4 text-[13px];
+  }
+  .btn-lg {
+    @apply h-14 px-8 text-[15.5px];
+  }
+  .icon-btn {
+    @apply inline-flex size-10 items-center justify-center rounded-full transition-colors hover:bg-black/[0.05];
+  }
+
+  .chip {
+    @apply inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full border border-line-2 bg-white px-3.5 text-[13px] whitespace-nowrap transition-colors hover:border-ink;
+  }
+  .chip[aria-pressed='true'],
+  .chip.is-active {
+    @apply border-ink bg-ink text-white;
+  }
+
+  .tag {
+    @apply inline-flex h-[22px] items-center gap-1 rounded-[6px] px-1.5 text-[11.5px] font-semibold whitespace-nowrap;
+  }
+  .badge {
+    @apply inline-flex h-6 items-center rounded-full px-2.5 text-[11.5px] font-semibold whitespace-nowrap;
+  }
+
+  .input {
+    @apply h-12 w-full rounded-[12px] border border-line-2 bg-white px-4 text-[15px] transition-[border-color,box-shadow] outline-none placeholder:text-subtle hover:border-muted focus:border-info focus:ring-4 focus:ring-info/15;
+  }
+  .select {
+    @apply h-11 cursor-pointer appearance-none rounded-[12px] border border-line-2 bg-white bg-[length:16px] bg-[right_12px_center] bg-no-repeat pr-9 pl-3.5 text-[14px] outline-none hover:border-muted focus:border-info focus:ring-4 focus:ring-info/15;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d1d1f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  }
+  /* Eigene Checkbox im Store-Stil */
+  .check {
+    @apply grid size-[18px] shrink-0 cursor-pointer appearance-none place-content-center rounded-[5px] border-[1.5px] border-line-2 bg-white transition-colors hover:border-muted disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .check:checked {
+    @apply border-ink bg-ink;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .label {
+    @apply mb-1.5 block text-[13px] font-semibold text-ink-2;
+  }
+
+  .card {
+    @apply rounded-xl border border-line bg-white;
+  }
+  .panel {
+    @apply rounded-xl bg-panel;
+  }
+  /* Store-Karte: weiß, großer Radius, weicher Schatten, hebt sich beim Hover leicht an */
+  .store-card {
+    @apply relative overflow-hidden rounded-[18px] bg-white shadow-[var(--shadow-card)] transition-[box-shadow,transform] duration-300 ease-out;
+  }
+  .store-card:hover {
+    @apply shadow-[var(--shadow-card-hover)];
+    transform: scale(1.01);
+  }
+  /* Produktbild-Kachel: weiße Produktfotos verschmelzen mit dem Grau */
+  .tile {
+    @apply relative overflow-hidden rounded-[18px] bg-panel;
+  }
+  .tile img {
+    mix-blend-mode: multiply;
+  }
+  /* Bereich mit hellgrauem Hintergrund (Store-Optik) */
+  .band {
+    @apply bg-panel py-10 sm:py-14;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-row {
+    scrollbar-width: none;
+    @apply flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain sm:gap-4;
+  }
+  .snap-row::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-row > * {
+    @apply snap-start;
+  }
+
+  .price {
+    font-variant-numeric: tabular-nums;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+  .link {
+    @apply text-info underline decoration-transparent underline-offset-[3px] transition-colors hover:decoration-info;
+  }
+  .link-arrow {
+    @apply inline-flex items-center gap-0.5 text-[15px] text-info underline decoration-transparent underline-offset-[3px] transition-colors hover:decoration-info;
+  }
+
+  .img-fade {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+  .img-fade[data-loaded='true'] {
+    @apply opacity-100;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Datentabellen (Produktvergleich, Listenansicht, technische Daten) */
+  .data-table {
+    @apply w-full border-collapse text-[14px];
+  }
+  .data-table th {
+    @apply border-b border-line px-3 py-2.5 text-left text-[12px] font-semibold text-muted;
+  }
+  .data-table td {
+    @apply border-b border-line px-3 py-2.5 align-middle;
+  }
+  .data-table tbody tr:hover td {
+    @apply bg-panel/70;
+  }
+
+  .range-input {
+    @apply h-1.5 w-full cursor-pointer appearance-none rounded-full bg-line accent-ink;
+  }
+  .range-input::-webkit-slider-thumb {
+    @apply size-[18px] appearance-none rounded-full border-2 border-white bg-ink shadow;
+  }
+  .range-input::-moz-range-thumb {
+    @apply size-[16px] rounded-full border-2 border-white bg-ink;
+  }
+}
+
+/* Reihe läuft rechts bis an den Fensterrand (wie im Apple Store) – bewusst außerhalb der Layer, damit es die Abstands-Utilities überschreibt */
+@media (min-width: 1024px) {
+  .rail-bleed {
+    --bleed: max(2.5rem, calc((100vw - 1440px) / 2 + 2.5rem));
+    margin-left: 0;
+    margin-right: calc(var(--bleed) * -1);
+    padding-left: 0;
+    padding-right: var(--bleed);
+    scroll-padding-left: 0;
+  }
+}
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+  --poster-color: transparent;
+}
+
+/* Druckansicht (z. B. Warenkorb als Angebot) */
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+  header,
+  footer,
+  .fixed,
+  [data-print-hide],
+  button {
+    display: none !important;
+  }
+  body {
+    font-size: 12px;
+  }
+  .card,
+  .shadow-pop,
+  .shadow-bar {
+    box-shadow: none !important;
+  }
+  a {
+    text-decoration: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

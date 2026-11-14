@@ -1,0 +1,32 @@
+{
+  "_info": "Belagart laut Kategoriezuordnung auf tt-shop.de (Der Materialspezialist / Dr. Neubauer: Lange, Halblange, Kurze Noppen, Anti Top, Glanti, Noppen innen) bzw. Markenkategorien für Noppen (Donic, Joola, Victas, Tibhar Grass). Stand 13.11.2026.",
+  "Lange Noppen": [
+    "der-materialspezialist-elimination-extra-long", "der-materialspezialist-elite-long", "der-materialspezialist-hallucination", "der-materialspezialist-kamikaze", "der-materialspezialist-kamikaze-long-green-grass-edition", "der-materialspezialist-l-s-d-extra-long", "der-materialspezialist-rebellion", "der-materialspezialist-spectre", "der-materialspezialist-superwall",
+    "dr-neubauer-allround-premium-2", "dr-neubauer-boomerang-classic", "dr-neubauer-desperado", "dr-neubauer-desperado-2", "dr-neubauer-fighter", "dr-neubauer-monster-classic", "dr-neubauer-number-1", "dr-neubauer-punch", "dr-neubauer-trouble-maker", "dr-neubauer-trouble-maker-reloaded", "dr-neubauer-viper", "dr-neubauer-viper-soft",
+    "donic-alligator-def", "donic-piranja-cd", "donic-piranja-tec", "joola-cwx", "tibhar-grass", "tibhar-grass-d-tecs", "tibhar-grass-d-tecs-gs",
+    "victas-curl-p1v", "victas-curl-p2v", "victas-curl-p3av", "victas-curl-p3v", "victas-curl-p4v", "victas-curl-p5v"
+  ],
+  "Halblange Noppen": [
+    "der-materialspezialist-flashback", "der-materialspezialist-hellcat", "der-materialspezialist-power-pipes", "der-materialspezialist-shockwave",
+    "dr-neubauer-aggressor-evo", "dr-neubauer-agressor", "dr-neubauer-diamant", "dr-neubauer-k-o-pro"
+  ],
+  "Kurze Noppen": [
+    "der-materialspezialist-breakout", "der-materialspezialist-burnout", "der-materialspezialist-firestorm", "der-materialspezialist-firestorm-green-stom-edition", "der-materialspezialist-firestorm-soft", "der-materialspezialist-hellracer", "der-materialspezialist-outkill", "der-materialspezialist-spinfire-extrem", "der-materialspezialist-spinfire-extrem-extra-soft", "der-materialspezialist-spinfire-soft",
+    "dr-neubauer-explosion", "dr-neubauer-explosion-pro", "dr-neubauer-explosion-soft", "dr-neubauer-killer", "dr-neubauer-killer-pro", "dr-neubauer-killer-pro-evo", "dr-neubauer-killer-soft", "dr-neubauer-leopard", "dr-neubauer-pistol", "dr-neubauer-pistol-2", "dr-neubauer-terminator", "dr-neubauer-tornado-extreme", "dr-neubauer-tornado-ultra",
+    "donic-baxster-f1-a", "joola-express-ultra", "joola-tango-ultra",
+    "victas-spectol-s1", "victas-spectol-s2", "victas-spectol-s3", "victas-spinpips-d1", "victas-spinpips-d2", "victas-spinpips-d3", "victas-vo-101", "victas-vo-102", "victas-vo-103"
+  ],
+  "Anti": [
+    "der-materialspezialist-anti-speed", "der-materialspezialist-diabolic-extra-slow", "der-materialspezialist-stoerkraft", "der-materialspezialist-ttr-killer",
+    "dr-neubauer-buffalo", "dr-neubauer-buffalo-9106", "dr-neubauer-django", "dr-neubauer-gorilla", "dr-neubauer-gorilla-a-b-s",
+    "donic-alligator-anti"
+  ],
+  "Glanti": [
+    "der-materialspezialist-diabolic-special", "der-materialspezialist-mega-block", "der-materialspezialist-reflection", "der-materialspezialist-scandal", "der-materialspezialist-transformer-anti", "der-materialspezialist-transformer-extra-slow",
+    "dr-neubauer-a-b-s", "dr-neubauer-a-b-s-2", "dr-neubauer-a-b-s-2-evo", "dr-neubauer-a-b-s-2-soft", "dr-neubauer-a-b-s-3-pro", "dr-neubauer-bison", "dr-neubauer-bison-8392", "dr-neubauer-rhino", "dr-neubauer-rhino-8391", "dr-neubauer-tarantula"
+  ],
+  "Noppen innen": [
+    "der-materialspezialist-hardcore", "der-materialspezialist-hardcore-speed", "der-materialspezialist-killing-defender", "der-materialspezialist-killing-defender-soft", "der-materialspezialist-tenacious-violence", "der-materialspezialist-tenacious-violence-speed", "der-materialspezialist-turlte-twister", "der-materialspezialist-turlte-twister-soft",
+    "dr-neubauer-dominance", "dr-neubauer-dominance-speed", "dr-neubauer-dominance-speed-hard", "dr-neubauer-dominance-spin", "dr-neubauer-dominance-spin-hard", "dr-neubauer-domination", "dr-neubauer-domination-speed-2", "dr-neubauer-domination-speed-soft", "dr-neubauer-special-defence"
+  ]
+}
