@@ -3,6 +3,7 @@ import { create } from 'zustand';
 import raw from '../data/catalog.json';
 import type { TableColor, TableConfig, TableKind } from '../three/tableSpec';
 
+import { asset } from './asset';
 /**
  * Katalog-Fassade. Prototyp: statischer Auszug aus tt-shop.de (343 Artikel).
  * Live: OpenMage-REST (src/api/openmage.ts) liefert dieselbe Struktur.
@@ -242,6 +243,7 @@ function unitPriceOf(title: string, price: number): string | null {
 
 export const products: Product[] = raw.products.map((p) => ({
   ...(p as unknown as Omit<Product, 'table' | 'unitPrice' | 'freight' | 'options'>),
+  images: p.images.map(asset),
   options: [],
   table: tableConfig(p),
   unitPrice: unitPriceOf(p.title, p.price),

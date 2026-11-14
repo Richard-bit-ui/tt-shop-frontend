@@ -4,6 +4,7 @@ import { Info, Loader2, ScanLine, Smartphone } from 'lucide-react';
 import { Sheet } from '../components/ui';
 import { TABLE_COLORS, type TableColor, type TableKind } from './tableSpec';
 
+import { asset, BASE_PATH } from '../lib/asset';
 declare const __LAN_IP__: string;
 
 declare module 'react' {
@@ -20,13 +21,13 @@ interface ModelViewerEl extends HTMLElement {
   activateAR: () => Promise<void>;
 }
 
-export const modelUrl = (kind: TableKind, color: TableColor) => `/models/platte-${kind}-${color}.glb`;
+export const modelUrl = (kind: TableKind, color: TableColor) => asset(`/models/platte-${kind}-${color}.glb`);
 
 /** URL, die das Handy im selben WLAN öffnen kann (localhost → LAN-IP des Rechners) */
 export function phoneUrl(path: string) {
   const { protocol, hostname, port } = window.location;
   const host = hostname === 'localhost' || hostname === '127.0.0.1' ? __LAN_IP__ : hostname;
-  return `${protocol}//${host}${port ? ':' + port : ''}${path}`;
+  return `${protocol}//${host}${port ? ':' + port : ''}${BASE_PATH}${path}`;
 }
 
 export default function ARSheet({ open, onClose, kind, color, title, sharePath }: { open: boolean; onClose: () => void; kind: TableKind; color: TableColor; title: string; sharePath: string }) {

@@ -5,13 +5,14 @@ import { AnimatePresence, motion } from 'motion/react';
 import { ChevronDown, ChevronRight, Info, Minus, Plus, Star, X } from 'lucide-react';
 import { COLOR_HEX, discountPct, formatPrice, type Product } from '../lib/catalog';
 
+import { asset } from '../lib/asset';
 export function cx(...c: (string | false | null | undefined)[]) {
   return c.filter(Boolean).join(' ');
 }
 
 /* ---------- Bild mit Fade-in ---------- */
 /** Produktbilder gibt es zusätzlich als 480-px-Vorschau (…-t.webp) */
-export const toThumb = (src: string) => (src.startsWith('/img/p/') && src.endsWith('.webp') && !src.endsWith('-t.webp') ? src.replace(/\.webp$/, '-t.webp') : src);
+export const toThumb = (src: string) => (src.startsWith(asset('/img/p/')) && src.endsWith('.webp') && !src.endsWith('-t.webp') ? src.replace(/\.webp$/, '-t.webp') : src);
 
 export function Img({ src, alt, className, eager, thumb }: { src: string; alt: string; className?: string; eager?: boolean; thumb?: boolean }) {
   const [loaded, setLoaded] = useState(false);
@@ -36,7 +37,15 @@ export function Img({ src, alt, className, eager, thumb }: { src: string; alt: s
 }
 
 export function Logo({ className, invert }: { className?: string; invert?: boolean }) {
-  return <img src="/brand/tt-shop-logo.png" alt="TT-Shop – Der Tischtennis Shop" width={235} height={61} className={cx('h-[26px] w-auto md:h-[28px]', invert && 'brightness-0 invert', className)} />;
+  return (
+    <img
+      src={asset('/brand/tt-shop-logo.png')}
+      alt="TT-Shop – Der Tischtennis Shop"
+      width={235}
+      height={61}
+      className={cx('h-[26px] w-auto md:h-[28px]', invert && 'brightness-0 invert', className)}
+    />
+  );
 }
 
 /* ---------- Preis ---------- */

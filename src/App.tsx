@@ -9,6 +9,7 @@ import { ChatLauncher } from './components/Chat';
 import Home from './pages/Home';
 import Category from './pages/Category';
 
+import { BASE_PATH, IS_PUBLIC_PREVIEW } from './lib/asset';
 const Product = lazy(() => import('./pages/Product'));
 const Compare = lazy(() => import('./pages/Compare'));
 const Configurator = lazy(() => import('./pages/Configurator'));
@@ -27,6 +28,19 @@ function PageLoader() {
   );
 }
 
+/** Hinweis in der öffentlichen Vorschau (GitHub Pages) */
+function PreviewBar() {
+  if (!IS_PUBLIC_PREVIEW) return null;
+  return (
+    <div className="bg-ink px-4 py-2 text-center text-[12px] leading-snug text-white/75" data-print-hide>
+      <span className="font-semibold text-white">Prototyp</span> · Vorschau des neuen TT-Shop-Frontends – Bestellungen werden nicht ausgeführt.{' '}
+      <a href="https://www.tt-shop.de" className="whitespace-nowrap text-white underline underline-offset-2">
+        Zum Shop tt-shop.de
+      </a>
+    </div>
+  );
+}
+
 function Shell() {
   const { pathname } = useLocation();
   const minimal = pathname.startsWith('/kasse');
@@ -36,6 +50,7 @@ function Shell() {
       <a href="#inhalt" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-md focus:bg-ink focus:px-4 focus:py-2.5 focus:text-white">
         Zum Inhalt springen
       </a>
+      <PreviewBar />
       {!minimal && <Header />}
       <main id="inhalt" tabIndex={-1} className={`min-h-[60vh] outline-none ${pathname === '/' ? '' : 'pb-16'}`}>
         <Suspense fallback={<PageLoader />}>
@@ -83,7 +98,7 @@ function Shell() {
 export default function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <BrowserRouter>
+      <BrowserRouter basename={BASE_PATH || undefined}>
         <Shell />
       </BrowserRouter>
     </MotionConfig>

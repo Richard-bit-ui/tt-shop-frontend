@@ -8,6 +8,7 @@ import { useCartTotals } from '../store/cart';
 import { useSaved, useUI } from '../store/ui';
 import { cx, Logo, Sheet, Stars } from './ui';
 
+import { asset } from '../lib/asset';
 /* ================= Navigationsmodell ================= */
 export interface NavLinkItem {
   label: string;
@@ -159,7 +160,11 @@ function MegaMenu({ cat, onClose }: { cat: CatId; onClose: () => void }) {
         <div className="flex flex-col gap-3">
           {(cat === 'belaege' || cat === 'hoelzer' || cat === 'schlaeger') && (
             <Link to="/konfigurator" onClick={onClose} className="group relative isolate block overflow-hidden rounded-[18px] bg-black p-5 text-white">
-              <img src="/img/lifestyle/pro-rackets-sm.webp" alt="" className="absolute inset-0 -z-10 size-full object-cover opacity-55 transition-transform duration-500 group-hover:scale-105" />
+              <img
+                src={asset('/img/lifestyle/pro-rackets-sm.webp')}
+                alt=""
+                className="absolute inset-0 -z-10 size-full object-cover opacity-55 transition-transform duration-500 group-hover:scale-105"
+              />
               <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/80 to-black/10" />
               <div className="pt-16 text-[12px] font-semibold text-[#ff4d5e]">Schläger-Konfigurator</div>
               <div className="mt-0.5 text-[17px] leading-snug font-semibold tracking-[-0.015em]">Holz + 2 Beläge. Wir montieren für 2,00&nbsp;€.</div>

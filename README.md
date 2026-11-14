@@ -2,6 +2,12 @@
 
 Mobile-first Prototyp für ein neues Frontend von **tt-shop.de** (Backend: OpenMage / Magento 1) – im Stil eines professionellen Fachhändlers: tiefe Navigation, technische Daten, Fachfilter, Material-Beratung, Produktvergleich und Schläger-Konfigurator.
 
+## Online ansehen
+
+**https://richard-bit-ui.github.io/tt-shop-frontend/**
+
+Die Vorschau wird bei jedem Push auf `main` automatisch per GitHub Actions gebaut und auf GitHub Pages veröffentlicht (`.github/workflows/pages.yml`). Sie ist als Prototyp gekennzeichnet, für Suchmaschinen gesperrt (`noindex`) und löst keine Bestellungen aus.
+
 ## Starten
 
 Voraussetzung: Node.js ≥ 23 (getestet mit 24).
@@ -15,7 +21,7 @@ Dann im Browser öffnen: **http://localhost:5173**
 
 **Auf dem Handy testen:** Der Dev-Server lauscht auch im WLAN. Die Adresse steht im Terminal unter `Network:` (z. B. `http://192.168.x.x:5173`). Windows fragt beim ersten Start ggf. nach einer Firewall-Freigabe – „Private Netzwerke“ erlauben. Im AR-Dialog am Desktop erscheint ein QR-Code mit genau dieser Adresse.
 
-Produktions-Build: `npm run build` und danach `npm run preview` (Port 4173). Typprüfung: `npm run typecheck`.
+Produktions-Build: `npm run build` und danach `npm run preview` (Port 4173). Typprüfung: `npm run typecheck`. Für die GitHub-Pages-Variante setzt der Workflow `GH_PAGES_BASE=/tt-shop-frontend/` (Unterordner) und `VITE_PUBLIC_PREVIEW=1` (Prototyp-Hinweis, `noindex`).
 
 ## Was drin ist
 

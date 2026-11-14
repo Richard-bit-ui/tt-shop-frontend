@@ -11,6 +11,7 @@ import { ProductRail } from '../components/ProductCard';
 import { Accordion, Breadcrumbs, cx, Img, Logo, PaymentBadges, QtyStepper, SectionHead } from '../components/ui';
 import { usePageMeta } from '../lib/seo';
 
+import { pageUrl } from '../lib/asset';
 export function Summary({ t, compact }: { t: CartTotals; compact?: boolean }) {
   return (
     <dl className={cx('space-y-2 text-[14px]', compact && 'text-[13.5px]')}>
@@ -210,7 +211,7 @@ function SharedList() {
 function ShareTools({ t }: { t: CartTotals }) {
   const [copied, setCopied] = useState(false);
   const share = async () => {
-    const url = `${location.origin}/warenkorb?liste=${packCart(t.lines)}`;
+    const url = pageUrl(`/warenkorb?liste=${packCart(t.lines)}`);
     try {
       if (navigator.share && matchMedia('(pointer: coarse)').matches) {
         await navigator.share({ title: 'Materialliste TT-Shop', url });

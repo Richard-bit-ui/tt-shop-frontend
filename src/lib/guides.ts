@@ -1,3 +1,4 @@
+import { asset } from './asset';
 /**
  * Ratgeber-Inhalte (Fachwissen Tischtennis-Material). Jeder Artikel verlinkt auf passend
  * gefilterte Produktlisten, damit aus Wissen eine Kaufentscheidung wird.
@@ -24,7 +25,7 @@ export const GUIDES: Guide[] = [
     slug: 'belagarten',
     title: 'Belagarten erklärt: Tensor, Hybrid, klebrig, Noppen & Anti',
     teaser: 'Welche Belagart passt zu deinem Spielsystem? Die wichtigsten Typen mit Stärken, Schwächen und typischen Spielern.',
-    img: '/img/lifestyle/pro-rackets-sm.webp',
+    img: asset('/img/lifestyle/pro-rackets-sm.webp'),
     minutes: 6,
     sections: [
       {
@@ -80,7 +81,7 @@ export const GUIDES: Guide[] = [
     slug: 'haerte-und-staerke',
     title: 'Schwammhärte & Schwammstärke richtig wählen',
     teaser: 'Was bedeuten 40°, 47,5° oder „max“? So findest du die passende Kombination für dein Niveau.',
-    img: '/img/lifestyle/tournament-sm.webp',
+    img: asset('/img/lifestyle/tournament-sm.webp'),
     minutes: 5,
     sections: [
       {
@@ -125,7 +126,7 @@ export const GUIDES: Guide[] = [
     slug: 'holzaufbau',
     title: 'Holzaufbau: Allholz, Carbon, ALC & ZLC – und welche Griffform?',
     teaser: 'Furnierzahl, Faserlagen und Griffform entscheiden über Tempo und Gefühl. Ein Überblick für die Holzwahl.',
-    img: '/img/lifestyle/player-sm.webp',
+    img: asset('/img/lifestyle/player-sm.webp'),
     minutes: 6,
     sections: [
       {
@@ -173,7 +174,7 @@ export const GUIDES: Guide[] = [
     slug: 'kleben-und-pflege',
     title: 'Beläge kleben, Kantenband & Pflege',
     teaser: 'Schritt für Schritt zum perfekt montierten Schläger – und wie deine Beläge länger griffig bleiben.',
-    img: '/img/lifestyle/flatlay-sm.webp',
+    img: asset('/img/lifestyle/flatlay-sm.webp'),
     minutes: 4,
     sections: [
       {
@@ -209,7 +210,7 @@ export const GUIDES: Guide[] = [
     slug: 'materialregeln',
     title: 'Materialregeln: Was ist im Wettkampf erlaubt?',
     teaser: 'Belagfarben, maximale Dicke, zugelassene Beläge und Bälle – die wichtigsten Regeln im Überblick.',
-    img: '/img/lifestyle/blue-table-sm.webp',
+    img: asset('/img/lifestyle/blue-table-sm.webp'),
     minutes: 4,
     sections: [
       {
@@ -246,7 +247,7 @@ export const GUIDES: Guide[] = [
     slug: 'tischtennisplatte-kaufen',
     title: 'Tischtennisplatte kaufen: Indoor, Outdoor oder Wettkampf?',
     teaser: 'Plattenstärke, Untergestell, Wetterfestigkeit und Platzbedarf – worauf es beim Plattenkauf ankommt.',
-    img: '/img/lifestyle/table-racket-sm.webp',
+    img: asset('/img/lifestyle/table-racket-sm.webp'),
     minutes: 5,
     sections: [
       {
@@ -295,7 +296,7 @@ export const GUIDES: Guide[] = [
     slug: 'tischtennisbaelle',
     title: 'Tischtennisbälle: Sterne, Plastik & Packungsgrößen',
     teaser: 'Wettkampf oder Training, mit oder ohne Naht? So findest du den richtigen Ball.',
-    img: '/img/lifestyle/serve-sm.webp',
+    img: asset('/img/lifestyle/serve-sm.webp'),
     minutes: 3,
     sections: [
       {

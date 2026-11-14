@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import type { Product } from './catalog';
 
+import { BASE_PATH } from './asset';
 const SITE = 'TT-Shop.de';
 const DEFAULT_DESC = 'TT-Shop – der Tischtennis-Fachhändler: Beläge, Hölzer, Profischläger, Bälle, Tische und Roboter mit technischen Daten, Montage-Service und persönlicher Beratung.';
 
@@ -60,7 +61,7 @@ export function productLd(p: Product) {
       price: p.price.toFixed(2),
       availability: p.inStock ? 'https://schema.org/InStock' : 'https://schema.org/BackOrder',
       itemCondition: 'https://schema.org/NewCondition',
-      url: `${origin}/p/${p.id}`,
+      url: `${origin}${BASE_PATH}/p/${p.id}`,
       seller: { '@type': 'Organization', name: 'TT-Shop.de (Tikotec UG)' },
     },
   };
@@ -71,6 +72,6 @@ export function breadcrumbLd(items: { to?: string; label: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.label, item: it.to ? origin + it.to : undefined })),
+    itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.label, item: it.to ? origin + BASE_PATH + it.to : undefined })),
   };
 }

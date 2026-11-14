@@ -10,6 +10,7 @@ import { cx, Img, Reveal, SectionHead, Stars } from '../components/ui';
 import { usePageMeta } from '../lib/seo';
 import { BRAND_LOGOS } from '../lib/brandLogos';
 
+import { asset, srcset } from '../lib/asset';
 const SALE = products.filter((p) => p.sale);
 
 /** Je Kategorie der hochwertigste reduzierte Artikel für die Deal-Kacheln im Hero */
@@ -24,8 +25,8 @@ function Hero() {
     <section className="relative isolate overflow-hidden bg-[#0a0a0b] text-white">
       <h1 className="sr-only">TT-Shop – der Tischtennis-Fachhändler: Beläge, Hölzer, Schläger und Tische</h1>
       <img
-        src="/img/lifestyle/hero-net-md.webp"
-        srcSet="/img/lifestyle/hero-net-sm.webp 720w, /img/lifestyle/hero-net-md.webp 1200w, /img/lifestyle/hero-net.webp 1920w"
+        src={asset('/img/lifestyle/hero-net-md.webp')}
+        srcSet={srcset('/img/lifestyle/hero-net-sm.webp 720w, /img/lifestyle/hero-net-md.webp 1200w, /img/lifestyle/hero-net.webp 1920w')}
         sizes="100vw"
         width={1920}
         height={1280}
@@ -135,8 +136,8 @@ function PromoTiles() {
           className="group relative isolate flex h-[520px] flex-col items-center overflow-hidden rounded-[28px] bg-black px-6 pt-10 text-center text-white sm:h-[600px] sm:pt-14"
         >
           <img
-            src="/img/lifestyle/pro-rackets-md.webp"
-            srcSet="/img/lifestyle/pro-rackets-sm.webp 800w, /img/lifestyle/pro-rackets-md.webp 1400w"
+            src={asset('/img/lifestyle/pro-rackets-md.webp')}
+            srcSet={srcset('/img/lifestyle/pro-rackets-sm.webp 800w, /img/lifestyle/pro-rackets-md.webp 1400w')}
             sizes="(min-width: 1024px) 50vw, 100vw"
             alt=""
             loading="lazy"
@@ -157,8 +158,8 @@ function PromoTiles() {
       <Reveal delay={0.08}>
         <Link to="/berater" className="group relative isolate flex h-[520px] flex-col items-center overflow-hidden rounded-[28px] bg-white px-6 pt-10 text-center sm:h-[600px] sm:pt-14">
           <img
-            src="/img/lifestyle/tournament-md.webp"
-            srcSet="/img/lifestyle/tournament-sm.webp 800w, /img/lifestyle/tournament-md.webp 1400w"
+            src={asset('/img/lifestyle/tournament-md.webp')}
+            srcSet={srcset('/img/lifestyle/tournament-sm.webp 800w, /img/lifestyle/tournament-md.webp 1400w')}
             sizes="(min-width: 1024px) 50vw, 100vw"
             alt=""
             loading="lazy"
@@ -334,12 +335,12 @@ function Brands() {
 /* ---------------- Ratgeber ---------------- */
 function Guides() {
   const guides = [
-    { to: '/ratgeber/belagarten', img: '/img/lifestyle/pro-rackets-sm.webp', title: 'Belagarten erklärt', text: 'Tensor, Hybrid, klebrig oder Noppen außen – was passt zu deinem Spielsystem?' },
-    { to: '/ratgeber/holzaufbau', img: '/img/lifestyle/player-sm.webp', title: 'Holzaufbau: Allholz, Carbon, ALC', text: 'Furniere, Gewicht und Griffform – so findest du das richtige Holz.' },
-    { to: '/ratgeber/haerte-und-staerke', img: '/img/lifestyle/tournament-sm.webp', title: 'Schwammhärte & -stärke', text: 'Was bedeuten 40°, 47,5° oder „max“? So passt es zu deinem Niveau.' },
+    { to: '/ratgeber/belagarten', img: asset('/img/lifestyle/pro-rackets-sm.webp'), title: 'Belagarten erklärt', text: 'Tensor, Hybrid, klebrig oder Noppen außen – was passt zu deinem Spielsystem?' },
+    { to: '/ratgeber/holzaufbau', img: asset('/img/lifestyle/player-sm.webp'), title: 'Holzaufbau: Allholz, Carbon, ALC', text: 'Furniere, Gewicht und Griffform – so findest du das richtige Holz.' },
+    { to: '/ratgeber/haerte-und-staerke', img: asset('/img/lifestyle/tournament-sm.webp'), title: 'Schwammhärte & -stärke', text: 'Was bedeuten 40°, 47,5° oder „max“? So passt es zu deinem Niveau.' },
     {
       to: '/ratgeber/tischtennisplatte-kaufen',
-      img: '/img/lifestyle/table-racket-sm.webp',
+      img: asset('/img/lifestyle/table-racket-sm.webp'),
       title: 'Tischtennisplatte kaufen',
       text: 'Indoor, Outdoor oder ITTF – Plattenstärke, Untergestell und Platzbedarf.',
     },
@@ -390,7 +391,7 @@ function Teams() {
     <section className="container-x mt-16 sm:mt-20">
       <Reveal>
         <div className="relative isolate overflow-hidden rounded-[28px] bg-black p-7 text-white sm:p-12">
-          <img src="/img/lifestyle/blue-table-sm.webp" alt="" loading="lazy" className="absolute inset-0 -z-20 size-full object-cover opacity-35" />
+          <img src={asset('/img/lifestyle/blue-table-sm.webp')} alt="" loading="lazy" className="absolute inset-0 -z-20 size-full object-cover opacity-35" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black via-black/85 to-black/40" />
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] lg:items-center">
             <div>
